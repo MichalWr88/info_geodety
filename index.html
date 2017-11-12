@@ -6,31 +6,27 @@
     <title>info geodety</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <!-- HEADER -->
-    <header class="row sticky-top bg-primary text-white p-3  doc__header">
+    <header class="row sticky-top bg-primary text-white p-3 mt-2 doc__header">
         <button class="col-2 col-md-1 btn btn-success mr-3" id="btnPrint">print</button>
         <label class="col-4 doc__selection mr-3">
             <input type="checkbox" id="deviation"> odstepstwa?
         </label>
         <fieldset class="col-4" id="choice">
-            
             <label id="decision">
-                <input name="decision"  type="radio" checked> decyzja
+                <input name="decision" type="radio" checked> decyzja
             </label>
             <label id="application">
-                <input name="decision"  type="radio"> zgłoszenie
+                <input name="decision" type="radio"> zgłoszenie
             </label>
         </fieldset>
     </header>
-
     <!-- DOCUMENT -->
     <main class="container-fluid p-0 doc__main ">
         <!-- DATE -->
@@ -43,7 +39,7 @@
         <p class="font-weight-bold text-center">Dotycząca usytuowania obiektu budowlanego/obiektów budowlanych*)</p>
         <div class="row align-items-start">
             <p class="col-3 mr-0 p-0 text-center">Ja, niżej podpisany/a:</p>
-            <label  class="col-9 row ml-0 pl-0">
+            <label class="col-9 row ml-0 pl-0">
                 <input type="text" class="col-12 text-center nameInp form-control font-weight-bold text-uppercase form-control-lg ">
                 <p class="container-fluid doc__desc">(imię i nazwisko)</p>
             </label>
@@ -53,7 +49,7 @@
             <p>Zgodnie z art. 57 ust. 1 pkt 5 ustawy Prawo budowlane (Dz. U. z 2013, poz. 1409 z późn. zm.),
                 <br />
                 <b>informuję</b>, że obiekt budowlany/obiekty budowlane*:</p>
-            <label  class="row col-lg-12">
+            <label class="row col-lg-12">
                 <textarea name="" cols="30" class="col-lg-12 textArea font-weight-bold"></textarea>
                 <p class="container-fluid text-center doc__desc">(określić nazwa obiektu/ów budowlanego/ych zgodnie z treścią decyzją o pozwolenie na budowę)</p>
             </label>
@@ -82,11 +78,10 @@
             <input type="text" class="col-sm-12 appInp d-none" placeholder="inwestor">
             <p class="appTxt cross">w dniu</p>
             <input class="appInp d-none" type="text" placeholder="data wniosku">
-
             <p class="col-12">usytuowany/usytuowane:zgodnie z zatwierdzonym projektem zagospodarowania działki lub terenu,</p>
             <p class="cross" id="deviationText">z odstępstwami od zatwierdzonego projektu zagospodarowania działki lub terenu z zakresie*:</p>
             <label class="col-sm-12 lapse" id="deviation-area">
-                <textarea name="" cols="30" class="col-sm-12  textArea "></textarea>
+                <textarea name="" cols="30" class="col-sm-12  textArea " disabled></textarea>
             </label>
         </div>
         <!-- ===================== -->
@@ -95,25 +90,19 @@
                 w dziedzinie geodezji i kartografii.</h4>
         </div>
         <!-- ============== -->
-
         <p class="col-5  offset-7 text-center signature">(pieczątka i podpis)</p>
-
         <div class="row align-items-center doc__fixed-bottom">
             <p class="col-3 m-0">* Niepotrzebne skreślić</p>
-            <p class="col-8 doc__desc text-center">(czytelny podpis osoby wykonującej samodzielną funkcję w dziedzinie geodezji i kartografii, posiadajacej odpowiedznie
-                uprawnienia zawodowe oraz nr uprawnień zawodowych)</p>
+            <p class="col-8 doc__desc text-center">(czytelny podpis osoby wykonującej samodzielną funkcję w dziedzinie geodezji i kartografii, posiadajacej odpowiedznie uprawnienia zawodowe oraz nr uprawnień zawodowych)</p>
         </div>
     </main>
-    <footer class="row text-center">
-        <p class="col-lg-12 ">Michał Maleszewski 2017</p>
+    <footer class="row text-center bg-info">
+        <p class="col-lg-12 ">Michał Maleszewski 2017 <b>maleszewski.geo@gmail.com</b></p>
     </footer>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="js/out.js"></script>
 </body>
 
