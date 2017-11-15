@@ -89,7 +89,12 @@ h4 {
     min-height: 50px;
     max-height: 150px;
 }
-
+.circular {
+background: #EBEBE9;
+background-image: linear-gradient(-70deg, rgba(255,255,255,0.35) 3%, rgba(0,0,0,0.35) 100%),
+radial-gradient(101% 97%, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 98%);
+background-blend-mode: normal,normal,lighten;
+}
 
 
 /* ------------------------- MEDIA PRINT ------------------------- */
@@ -101,7 +106,11 @@ h4 {
     }
     body {
         height: 100vh;
-        background-color: white;
+        background: white !important;
+    }
+    .circular{
+        background: white !important;
+
     }
     header {
         display: none !important;

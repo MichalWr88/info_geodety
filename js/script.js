@@ -1,8 +1,7 @@
-import { log } from "util";
-
 window.addEventListener('load', () => {
 
     const btnPrint = fElId('btnPrint'),
+    body = document.querySelector('main'),
         cbDeviation = fElId('deviation'),
         txtDeviation = fElId('deviationText'),
         areaDeviation = fElId('deviation-area'),
@@ -20,6 +19,7 @@ window.addEventListener('load', () => {
     // print
     btnPrint.addEventListener('click', (e) => {
         window.print();
+            
     }, false)
     // odstepstwa
     cbDeviation.addEventListener('click', (e) => {
@@ -60,6 +60,8 @@ window.addEventListener('load', () => {
         }
 
     }, false);
+
+
 
 }, false);
 

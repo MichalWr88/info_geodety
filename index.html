@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="circular">
     <!-- HEADER -->
     <header class="row sticky-top bg-primary text-white p-3 mt-2 doc__header">
         <button class="col-2 col-md-1 btn btn-success mr-3" id="btnPrint">print</button>
@@ -35,12 +35,12 @@
             <input type="text" class="col-5 doc__textInp ml-0 mt-1 font-weight-bold" placeholder="data ">
         </div>
         <!-- SURVEYOR -->
-        <h1 class="col-12 text-center text-uppercase">informacje geodety</h1>
+        <h1 class="col-12 text-center text-uppercase ">informacje geodety</h1>
         <p class="font-weight-bold text-center">Dotycząca usytuowania obiektu budowlanego/obiektów budowlanych*)</p>
         <div class="row align-items-start">
             <p class="col-3 mr-0 p-0 text-center">Ja, niżej podpisany/a:</p>
             <label class="col-9 row ml-0 pl-0">
-                <input type="text" class="col-12 text-center nameInp form-control font-weight-bold text-uppercase form-control-lg ">
+                <input type="text" class="form-control col-12 text-center nameInp form-control font-weight-bold text-uppercase form-control-lg ">
                 <p class="container-fluid doc__desc">(imię i nazwisko)</p>
             </label>
         </div>
@@ -58,24 +58,24 @@
             <!--                                DECISION -->
             <p class="col-sm-12">zrealizowany/zrealizowane na podstawie projektu budowlanego:</p>
             <p class="col-4 m-0">1. zatwierdzonego decyzją nr </p>
-            <input class="col-2 font-weight-bold" type="text" placeholder="nr decyzji">
+            <input class="form-control col-2 font-weight-bold" type="text" placeholder="nr decyzji">
             <p class="col-1 text-center m-0 p-0">, z dnia </p>
-            <input class="col-2 font-weight-bold" type="text" placeholder="data wydania decyzji">
+            <input class="form-control col-2 font-weight-bold" type="text" placeholder="data wydania decyzji">
             <p class="col-4 text-center m-0 p-0">wydaną przez</p>
-            <select name="Organ" class="col-6 m-0 p-0 doc__textInp decision font-weight-bold">
+            <select name="Organ" class="form-control col-6 m-0 p-0 doc__textInp decision font-weight-bold">
                 <option value="default" hidden>Organ</option>
                 <option value="prezydent">Prezydent Miasta </option>
-                <option value="Staroste powiatu Wrocławskiego">Staroste powiatu Wrocławskiego</option>
-                <option value="Staroste powiatu Trzebnickiego">Staroste powiatu Trzebnickiego</option>
-                <option value="Staroste powiatu Średzkiego">Staroste powiatu Średzkiego</option>
-                <option value="Staroste powiatu Oleśnickiego">Staroste powiatu Oleśnickiego</option>
+                <option value="Staroste Powiatu Wrocławskiego">Staroste Powiatu Wrocławskiego</option>
+                <option value="Staroste Powiatu Trzebnickiego">Staroste Powiatu Trzebnickiego</option>
+                <option value="Staroste Powiatu Średzkiego">Staroste Powiatu Średzkiego</option>
+                <option value="Staroste Powiatu Oleśnickiego">Staroste Powiatu Oleśnickiego</option>
                 <option value="Wojewodę Dolnośląskiego">Wojewodę Dolnośląskiego</option>
             </select>
             <!--                              APPLICATION -->
             <p class="col-sm-12 appTxt cross">lub</p>
             <p class="appTxt cross">2. Złożonego wraz ze zgłoszeniem budowy, o której mowa w art. 29 ust. 1 pkt 1a i 19a ustawy Prawo budowalne,
                 <br/> przez inwestora</p>
-            <input type="text" class="col-sm-12 appInp d-none" placeholder="inwestor">
+            <input type="text" class="form-control col-sm-12 appInp d-none" placeholder="inwestor">
             <p class="appTxt cross">w dniu</p>
             <input class="appInp d-none" type="text" placeholder="data wniosku">
             <p class="col-12">usytuowany/usytuowane:zgodnie z zatwierdzonym projektem zagospodarowania działki lub terenu,</p>
@@ -103,6 +103,7 @@
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
     <script src="js/out.js"></script>
 </body>
 
