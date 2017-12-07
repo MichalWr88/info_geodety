@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
     <!-- Required meta tags -->
@@ -31,11 +31,11 @@
     <main class="container-fluid p-0 doc__main ">
         <!-- DATE -->
         <div class="row offset-8">
-            <p class="col-5 doc__location  text-right mr-0 pr-0">Wrocław</p>
+            <p class="col-5 doc__location  text-right m-0 p-1">Wrocław</p>
             <input type="text" class="col-5 doc__textInp ml-0 mt-1 font-weight-bold" placeholder="data ">
         </div>
         <!-- SURVEYOR -->
-        <h1 class="col-12 text-center text-uppercase ">informacje geodety</h1>
+        <h1 class="col-12 text-center text-uppercase doc__info">informacje geodety</h1>
         <p class="font-weight-bold text-center">Dotycząca usytuowania obiektu budowlanego/obiektów budowlanych*)</p>
         <div class="row align-items-start">
             <p class="col-3 mr-0 p-0 text-center">Ja, niżej podpisany/a:</p>
@@ -56,15 +56,15 @@
         </div>
         <div class="row align-items-center">
             <!--                                DECISION -->
-            <p class="col-sm-12">zrealizowany/zrealizowane na podstawie projektu budowlanego:</p>
-            <p class="col-4 m-0">1. zatwierdzonego decyzją nr </p>
-            <input class="form-control col-2 font-weight-bold" type="text" placeholder="nr decyzji">
-            <p class="col-1 text-center m-0 p-0">, z dnia </p>
-            <input class="form-control col-2 font-weight-bold" type="text" placeholder="data wydania decyzji">
-            <p class="col-4 text-center m-0 p-0">wydaną przez</p>
-            <select name="Organ" class="form-control col-6 m-0 p-0 doc__textInp decision font-weight-bold">
+            <p class="col-sm-12 desTxt">zrealizowany/zrealizowane na podstawie projektu budowlanego:</p>
+            <p class="col-4 m-0 desTxt">1. zatwierdzonego decyzją nr </p>
+            <input class="form-control col-2 font-weight-bold doc__textInp desInp" type="text" placeholder="nr decyzji">
+            <p class="col-1 text-center m-0 p-0 desTxt">, z dnia </p>
+            <input class="form-control col-2 font-weight-bold doc__textInp desInp" type="text" placeholder="data wydania dec">
+            <p class="col-4 text-center m-0 p-0 desTxt">wydaną przez</p>
+            <select name="Organ" class="form-control col-6 m-0 p-0 doc__textInp decision font-weight-bold desInp">
                 <option value="default" hidden>Organ</option>
-                <option value="prezydent">Prezydent Miasta </option>
+                <option value="prezydent">Prezydenta Miasta Wrocławia</option>
                 <option value="Staroste Powiatu Wrocławskiego">Staroste Powiatu Wrocławskiego</option>
                 <option value="Staroste Powiatu Trzebnickiego">Staroste Powiatu Trzebnickiego</option>
                 <option value="Staroste Powiatu Średzkiego">Staroste Powiatu Średzkiego</option>
@@ -75,13 +75,13 @@
             <p class="col-sm-12 appTxt cross">lub</p>
             <p class="appTxt cross">2. Złożonego wraz ze zgłoszeniem budowy, o której mowa w art. 29 ust. 1 pkt 1a i 19a ustawy Prawo budowalne,
                 <br/> przez inwestora</p>
-            <input type="text" class="form-control col-sm-12 appInp d-none" placeholder="inwestor">
+            <input type="text" class="form-control col-sm-12 appInp d-none doc__textInp" placeholder="inwestor">
             <p class="appTxt cross">w dniu</p>
-            <input class="appInp d-none" type="text" placeholder="data wniosku">
+            <input class="appInp d-none doc__textInp" type="text" placeholder="data wniosku">
             <p class="col-12">usytuowany/usytuowane:zgodnie z zatwierdzonym projektem zagospodarowania działki lub terenu,</p>
             <p class="cross" id="deviationText">z odstępstwami od zatwierdzonego projektu zagospodarowania działki lub terenu z zakresie*:</p>
-            <label class="col-sm-12 lapse" id="deviation-area">
-                <textarea name="" cols="30" class="col-sm-12  textArea " disabled></textarea>
+            <label class="col-sm-12 lapse" id="deviation-label">
+                <textarea id="deviation-area" name="" cols="30" class="col-sm-12  textArea " ></textarea>
             </label>
         </div>
         <!-- ===================== -->
@@ -97,7 +97,7 @@
         </div>
     </main>
     <footer class="row text-center bg-info">
-        <p class="col-lg-12 ">Michał Maleszewski 2017 <b>maleszewski.geo@gmail.com</b></p>
+        <p class="col-lg-12 p-1 m-0">Michał Maleszewski 2017 <b>maleszewski.geo@gmail.com</b></p>
     </footer>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

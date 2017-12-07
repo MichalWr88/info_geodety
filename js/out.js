@@ -76,18 +76,24 @@ window.addEventListener('load', function () {
         body = document.querySelector('main'),
         cbDeviation = fElId('deviation'),
         txtDeviation = fElId('deviationText'),
+        labelDeviation = fElId('deviation-label'),
         areaDeviation = fElId('deviation-area'),
         choiceFiled = fElId('choice'),
 
     // 
     decisionInp = fElId('decision'),
+        applicationInp = fElId('application'),
 
     // 
-    applicationInp = fElId('application'),
-        appText = Array.prototype.slice.call(document.querySelectorAll('.appTxt')),
-        appInp = Array.prototype.slice.call(document.querySelectorAll('.appInp'));
+    appText = Array.prototype.slice.call(document.querySelectorAll('.appTxt')),
+        appInp = Array.prototype.slice.call(document.querySelectorAll('.appInp')),
 
-    console.log(applicationInp);
+    // 
+    desText = Array.prototype.slice.call(document.querySelectorAll('.desTxt')),
+        desInp = Array.prototype.slice.call(document.querySelectorAll('.desInp'));
+
+    areaDeviation.setAttribute('disabled', 'true');
+
     /* -------------------  EVENTS  ---------------------- */
     // print
     btnPrint.addEventListener('click', function (e) {
@@ -98,10 +104,12 @@ window.addEventListener('load', function () {
 
         if (e.target.checked) {
             txtDeviation.classList.toggle('cross');
-            areaDeviation.classList.toggle('none');
+            labelDeviation.classList.toggle('none');
+            areaDeviation.removeAttribute('disabled');
         } else {
             txtDeviation.classList.toggle('cross');
-            areaDeviation.classList.toggle('none');
+            labelDeviation.classList.toggle('none');
+            areaDeviation.setAttribute('disabled', true);
         }
     }, false);
     // zgloszenie/decyzja
@@ -114,11 +122,16 @@ window.addEventListener('load', function () {
             applicationInp.firstElementChild.setAttribute('checked', 'true');
             decisionInp.firstElementChild.removeAttribute('checked');
             appText.forEach(function (e) {
-                console.log(e);
                 e.classList.remove('cross');
             });
             appInp.forEach(function (e) {
                 e.classList.remove('d-none');
+            });
+            desText.forEach(function (e) {
+                e.classList.add('cross');
+            });
+            desInp.forEach(function (e) {
+                e.classList.add('d-none');
             });
         } else if (id === 'decision') {
             decisionInp.firstElementChild.setAttribute('checked', 'true');
@@ -128,6 +141,13 @@ window.addEventListener('load', function () {
             });
             appInp.forEach(function (e) {
                 e.classList.add('d-none');
+            });
+            desText.forEach(function (e) {
+
+                e.classList.remove('cross');
+            });
+            desInp.forEach(function (e) {
+                e.classList.remove('d-none');
             });
         }
     }, false);

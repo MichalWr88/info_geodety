@@ -4,7 +4,9 @@ body {
     /* background-color:lightskyblue; */
     padding: 20px;
 }
-
+.doc__info{
+    font-size:1.4rem;
+}
 .doc__main {
     height: 100%
 }
@@ -123,10 +125,8 @@ background-blend-mode: normal,normal,lighten;
         padding: 2px;
         margin: 2px;
     }
-    input {
-        border: none;
-    }
-    input::-webkit-input-placeholder {
+
+    .doc__textInp::-webkit-input-placeholder {
         color: white;
     }
     .textArea[disabled] {
