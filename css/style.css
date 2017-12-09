@@ -4,6 +4,9 @@ body {
     /* background-color:lightskyblue; */
     padding: 20px;
 }
+.doc__header{
+    background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
+}
 .doc__info{
     font-size:1.4rem;
 }
@@ -21,7 +24,17 @@ body {
     text-decoration: line-through;
 }
 
-
+.btn__print{
+background: linear-gradient(-60deg, #16a085 0%, #f4d03f 100%);
+color:white;
+border:none;
+text-transform: uppercase;
+font-size: 0.8rem;
+transition: 1.5s;
+}
+.btn__print:hover{
+background: linear-gradient(to top, #0fd850 0%, #f9f047 100%);
+}
 
 /* XXXXXXXXXX */
 
@@ -61,7 +74,9 @@ body {
     background-color: white;
 }
 
-
+.doc__choice{
+    cursor:pointer;
+}
 /* XXXXXXXXXXXXXX  */
 
 .none::after {
@@ -97,7 +112,13 @@ background-image: linear-gradient(-70deg, rgba(255,255,255,0.35) 3%, rgba(0,0,0,
 radial-gradient(101% 97%, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 98%);
 background-blend-mode: normal,normal,lighten;
 }
-
+.doc__footer{
+    background: #C9CCD3;
+ background-image: linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%);
+ background-blend-mode: lighten;
+ border-top-left-radius: 50%;
+ border-top-right-radius: 50%;
+}
 
 /* ------------------------- MEDIA PRINT ------------------------- */
 
