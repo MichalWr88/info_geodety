@@ -1,110 +1,204 @@
 <!DOCTYPE html>
-<html lang="pl">
-
-<head>
+<html lang="pl" class="h-screen">
+  <head>
     <!-- Required meta tags -->
     <title>info geodety</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-</head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body class="circular">
+  <body
+    class="container max-w-6xl grid mx-auto box-border overflow-x-hidden "
+  >
     <!-- HEADER -->
-    <header class="row sticky-top text-white p-3 mt-2 doc__header">
-        <button class="col-2 col-md-1 btn mr-3 btn__print" id="btnPrint">drukuj</button>
-        <label class="col-4 doc__selection mr-3">
-            <input type="checkbox" id="deviation"> odstepstwa?
+    <header class="grid gap-2 p-2 border-b-2 mb-5 sm:grid-cols-4 items-center print:grid-cols-4">
+      <button
+        type="button"
+        id="btnPrint"
+        class="col-span-1 uppercase inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+      >
+        drukuj
+      </button>
+      <div class="sm:col-span-1">
+        <label class="flex justify-center items-center border">
+          <input type="checkbox" class="m-1" id="deviation" /> odstępstwa?
         </label>
-        <fieldset class="col-4" id="choice">
-            <label id="decision">
-                <input name="decision" type="radio" checked> decyzja
-            </label>
-            <label id="application">
-                <input name="decision" type="radio"> zgłoszenie
-            </label>
-        </fieldset>
+      </div>
+
+      <fieldset class="flex justify-around sm:col-span-2 border" id="choice">
+        <label id="decision">
+          <input name="decision" type="radio" checked /> decyzja
+        </label>
+        <label id="application">
+          <input name="decision" type="radio" /> zgłoszenie
+        </label>
+      </fieldset>
     </header>
     <!-- DOCUMENT -->
-    <main class="container-fluid p-0 doc__main ">
-        <!-- DATE -->
-        <div class="row offset-8">
-            <p class="col-5 doc__location  text-right m-0 p-1">Wrocław</p>
-            <input type="text" class="col-5 doc__textInp ml-0 mt-1 font-weight-bold" placeholder="data ">
+    <main class="overflow-x-auto px-3 print:flex print:flex-col print:h-screen ">
+      <!-- DATE -->
+      <div class="flex items-center gap-2 print:flex justify-end">
+        <p class="text-right">Wrocław</p>
+        <input
+          placeholder="dd.mm.yyyy"
+          type="text"
+          class="print:border-none w-32 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+          id="dateInput"
+          placeholder="Data"
+        />
+        <button
+          type="button"
+          id="btnToday"
+          class="print:hidden uppercase inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+        >
+          Dzisiaj
+        </button>
+      </div>
+      <!-- SURVEYOR -->
+      <h1
+        class="text-center uppercase tracking-wide text-2xl font-bold px-2 p-"
+      >
+        informacje geodety
+      </h1>
+      <p class="font-bold text-center">
+        Dotycząca usytuowania obiektu budowlanego/obiektów budowlanych*)
+      </p>
+      <div class="print:grid-cols-6 grid grid-cols-1 gap-2 sm:grid-cols-6 mb-3 items-center">
+        <p class="col-span-2 text-end">Ja, niżej podpisany/a:</p>
+        <div class="col-span-4">
+          <input
+            type="email"
+            class="print:border-b-2 print:border-dotted  print:border-gray-950 print:border-t-0 print:border-l-0 print:border-r-0 
+            text-center font-bold form-control block w-full px-3 py-1.5 text-base text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            id="nameSurveyor"
+          />
+          <div class="text-xs text-gray-500 mt-1 text-center">
+            (imię i nazwisko)
+          </div>
         </div>
-        <!-- SURVEYOR -->
-        <h1 class="col-12 text-center text-uppercase doc__info">informacje geodety</h1>
-        <p class="font-weight-bold text-center">Dotycząca usytuowania obiektu budowlanego/obiektów budowlanych*)</p>
-        <div class="row align-items-start">
-            <p class="col-3 mr-0 p-0 text-center">Ja, niżej podpisany/a:</p>
-            <label class="col-9 row ml-0 pl-0">
-                <input type="text" class="form-control col-12 text-center nameInp form-control font-weight-bold text-uppercase form-control-lg ">
-                <p class="container-fluid doc__desc">(imię i nazwisko)</p>
-            </label>
+      </div>
+      <!-- INFORMATION -->
+      <div >
+        <p class="pb-2">
+          Zgodnie z art. 57 ust. 1 pkt 5 ustawy Prawo budowlane (Dz. U. z 2013,
+          poz. 1409 z późn. zm.),
+          <br />
+          <b>informuję</b>, że obiekt budowlany/obiekty budowlane*:
+        </p>
+        <label >
+          <textarea
+            class="print:border-none print:resize-none form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+            id="exampleFormControlTextarea1"
+            rows="3"
+            placeholder="Treść"
+          ></textarea>
+          <div class="text-xs text-gray-500 my-1 text-center">
+            (określić nazwa obiektu/ów budowlanego/ych zgodnie z treścią decyzją
+            o pozwolenie na budowę)
+          </div>
+        </label>
+      </div>
+      <div class="grid sm:grid-cols-8 print:grid-cols-8">
+        <!--DECISION -->
+        <p class="desTxt sm:col-span-8 print:col-span-8">
+          zrealizowany/zrealizowane na podstawie projektu budowlanego:
+        </p>
+        <p class="m-0 desTxt sm:col-span-2 print:col-span-2">1. zatwierdzonego decyzją nr</p>
+        <input
+          class="form-control font-weight-bold desInp sm:col-span-2 print:col-span-2"
+          type="text"
+          placeholder="nr decyzji"
+        />
+        <p class="text-center m-0 p-0 desTxt sm:col-span-2 print:col-span-2">, z dnia</p>
+        <input
+          class="form-control font-weight-bold desInp sm:col-span-2 print:col-span-2"
+          type="text"
+          placeholder="data wydania dec"
+        />
+        <p class="text-center m-0 p-0 desTxt sm:col-span-4 print:col-span-4">wydaną przez</p>
+        <select
+          name="Organ"
+          class="form-control m-0 p-0 decision font-weight-bold desInp sm:col-span-4 print:col-span-4"
+        >
+          <option value="default" hidden>Organ</option>
+          <option value="prezydent">Prezydenta Miasta Wrocławia</option>
+          <option value="Staroste Powiatu Wrocławskiego">
+            Starostę Powiatu Wrocławskiego
+          </option>
+          <option value="Staroste Powiatu Trzebnickiego">
+            Starostę Powiatu Trzebnickiego
+          </option>
+          <option value="Staroste Powiatu Średzkiego">
+            Starostę Powiatu Średzkiego
+          </option>
+          <option value="Staroste Powiatu Oleśnickiego">
+            Starostę Powiatu Oleśnickiego
+          </option>
+          <option value="Wojewodę Dolnośląskiego">
+            Wojewodę Dolnośląskiego
+          </option>
+        </select>
+        <!--APPLICATION -->
+        <p class="appTxt line-through sm:col-span-8 print:col-span-8">lub</p>
+        <p class="appTxt line-through sm:col-span-8 print:col-span-8">
+          2. Złożonego wraz ze zgłoszeniem budowy, o której mowa w art. 29 ust.
+          1 pkt 1a i 19a ustawy Prawo budowlane, <br />
+          przez inwestora
+        </p>
+        <input
+          type="text"
+          class="form-control appInp hidden"
+          placeholder="inwestor"
+        />
+        <p class="appTxt line-through">w dniu</p>
+        <input class="appInp hidden" type="text" placeholder="data wniosku" />
+        <p class="sm:col-span-8 print:col-span-8">
+          usytuowany/usytuowane:zgodnie z zatwierdzonym projektem
+          zagospodarowania działki lub terenu,
+        </p>
+        <p class="line-through sm:col-span-8 print:col-span-8" id="deviationText">
+          z odstępstwami od zatwierdzonego projektu zagospodarowania działki lub
+          terenu z zakresie*:
+        </p>
+        <div class="relative sm:col-span-8 print:col-span-8">
+          <label class="lapse w-full" id="deviation-label">
+            <textarea
+              id="deviation-area"
+              name=""
+              cols="30"
+              rows="4"
+              class="textArea w-full"
+            ></textarea>
+          </label>
         </div>
-        <!-- INFORMATION -->
-        <div class="row align-items-center">
-            <p>Zgodnie z art. 57 ust. 1 pkt 5 ustawy Prawo budowlane (Dz. U. z 2013, poz. 1409 z późn. zm.),
-                <br />
-                <b>informuję</b>, że obiekt budowlany/obiekty budowlane*:</p>
-            <label class="row col-lg-12">
-                <textarea name="" cols="30" class="col-lg-12 textArea font-weight-bold"></textarea>
-                <p class="container-fluid text-center doc__desc">(określić nazwa obiektu/ów budowlanego/ych zgodnie z treścią decyzją o pozwolenie na budowę)</p>
-            </label>
-        </div>
-        <div class="row align-items-center">
-            <!--                                DECISION -->
-            <p class="col-sm-12 desTxt">zrealizowany/zrealizowane na podstawie projektu budowlanego:</p>
-            <p class="col-4 m-0 desTxt">1. zatwierdzonego decyzją nr </p>
-            <input class="form-control col-2 font-weight-bold doc__textInp desInp" type="text" placeholder="nr decyzji">
-            <p class="col-1 text-center m-0 p-0 desTxt">, z dnia </p>
-            <input class="form-control col-2 font-weight-bold doc__textInp desInp" type="text" placeholder="data wydania dec">
-            <p class="col-4 text-center m-0 p-0 desTxt">wydaną przez</p>
-            <select name="Organ" class="form-control col-6 m-0 p-0 doc__textInp decision font-weight-bold desInp">
-                <option value="default" hidden>Organ</option>
-                <option value="prezydent">Prezydenta Miasta Wrocławia</option>
-                <option value="Staroste Powiatu Wrocławskiego">Staroste Powiatu Wrocławskiego</option>
-                <option value="Staroste Powiatu Trzebnickiego">Staroste Powiatu Trzebnickiego</option>
-                <option value="Staroste Powiatu Średzkiego">Staroste Powiatu Średzkiego</option>
-                <option value="Staroste Powiatu Oleśnickiego">Staroste Powiatu Oleśnickiego</option>
-                <option value="Wojewodę Dolnośląskiego">Wojewodę Dolnośląskiego</option>
-            </select>
-            <!--                              APPLICATION -->
-            <p class="col-sm-12 appTxt cross">lub</p>
-            <p class="appTxt cross">2. Złożonego wraz ze zgłoszeniem budowy, o której mowa w art. 29 ust. 1 pkt 1a i 19a ustawy Prawo budowalne,
-                <br/> przez inwestora</p>
-            <input type="text" class="form-control col-sm-12 appInp d-none doc__textInp" placeholder="inwestor">
-            <p class="appTxt cross">w dniu</p>
-            <input class="appInp d-none doc__textInp" type="text" placeholder="data wniosku">
-            <p class="col-12">usytuowany/usytuowane:zgodnie z zatwierdzonym projektem zagospodarowania działki lub terenu,</p>
-            <p class="cross" id="deviationText">z odstępstwami od zatwierdzonego projektu zagospodarowania działki lub terenu z zakresie*:</p>
-            <label class="col-sm-12 lapse" id="deviation-label">
-                <textarea id="deviation-area" name="" cols="30" class="col-sm-12  textArea " ></textarea>
-            </label>
-        </div>
-        <!-- ===================== -->
-        <div class="row align-items-center mb-4">
-            <h4 class="text-center">Oświadczam również, że posiadam odpowiednie uprawnienia zawodowe uprawniające do wykonywania samodzielnej funkcji
-                w dziedzinie geodezji i kartografii.</h4>
-        </div>
-        <!-- ============== -->
-        <p class="col-5  offset-7 text-center signature">(pieczątka i podpis)</p>
-        <div class="row align-items-center doc__fixed-bottom">
-            <p class="col-3 m-0">* Niepotrzebne skreślić</p>
-            <p class="col-8 doc__desc text-center">(czytelny podpis osoby wykonującej samodzielną funkcję w dziedzinie geodezji i kartografii, posiadajacej odpowiedznie uprawnienia zawodowe oraz nr uprawnień zawodowych)</p>
-        </div>
+      </div>
+      <div class="row align-items-center mb-44">
+        <h4 class="text-center font-bold text-xl">
+          Oświadczam również, że posiadam odpowiednie uprawnienia zawodowe
+          uprawniające do wykonywania samodzielnej funkcji w dziedzinie geodezji
+          i kartografii.
+        </h4>
+      </div>
+      <p class="text-xs text-gray-500 text-right mr-44">(pieczątka i podpis)</p>
+      <div class="flex mt-4 flex-1 flex-grow flex-shrink items-end">
+        <p class="text-sm mx-0 w-64 ">* Niepotrzebne skreślić</p>
+        <p class="text-xs text-gray-500 px-3 text-center">
+          (czytelny podpis osoby wykonującej samodzielną funkcję w dziedzinie
+          geodezji i kartografii, posiadajacej odpowiedznie uprawnienia zawodowe
+          oraz nr uprawnień zawodowych)
+        </p>
+      </div>
     </main>
-    <footer class="row text-center  doc__footer">
-        <p class="col-lg-12 p-1 m-0">Michał Maleszewski 2017 <b>maleszewski.geo@gmail.com</b></p>
+    <footer class="flex p-2 w-full">
+      <p class="text-sm">
+        Michał Maleszewski 2017/2023 <b>maleszewski.michal@gmail.com</b>
+      </p>
     </footer>
-    <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
     <script src="js/out.js"></script>
-</body>
-
+  </body>
 </html>

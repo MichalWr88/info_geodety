@@ -70,91 +70,106 @@
 "use strict";
 
 
-window.addEventListener('load', function () {
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-    var btnPrint = fElId('btnPrint'),
-        body = document.querySelector('main'),
-        cbDeviation = fElId('deviation'),
-        txtDeviation = fElId('deviationText'),
-        labelDeviation = fElId('deviation-label'),
-        areaDeviation = fElId('deviation-area'),
-        choiceFiled = fElId('choice'),
+// class config {
+//     constructor(name){
+//         if(!document) throw Error("document is undefined");
+//         this.obj =
+//     };
 
-    // 
-    decisionInp = fElId('decision'),
-        applicationInp = fElId('application'),
+//     init(name){
+//         getElemFromDocument = (elem) => { return document.getElementById(elem) }
+//     }
 
-    // 
-    appText = Array.prototype.slice.call(document.querySelectorAll('.appTxt')),
-        appInp = Array.prototype.slice.call(document.querySelectorAll('.appInp')),
+// }
 
-    // 
-    desText = Array.prototype.slice.call(document.querySelectorAll('.desTxt')),
-        desInp = Array.prototype.slice.call(document.querySelectorAll('.desInp'));
+window.addEventListener("load", function () {
+  var btnPrint = getElemFromDocument("btnPrint");
+  var btnToday = getElemFromDocument("btnToday");
+  var dateInp = getElemFromDocument("dateInput");
+  var cbDeviation = getElemFromDocument("deviation");
+  var txtDeviation = getElemFromDocument("deviationText");
+  var labelDeviation = getElemFromDocument("deviation-label");
+  var areaDeviation = getElemFromDocument("deviation-area");
+  var choiceFiled = getElemFromDocument("choice");
+  //
+  var decisionInp = getElemFromDocument("decision");
+  var applicationInp = getElemFromDocument("application");
+  //
+  var appText = [].concat(_toConsumableArray(document.querySelectorAll(".appTxt")));
+  var appInp = [].concat(_toConsumableArray(document.querySelectorAll(".appInp")));
+  var desText = [].concat(_toConsumableArray(document.querySelectorAll(".desTxt")));
+  var desInp = [].concat(_toConsumableArray(document.querySelectorAll(".desInp")));
 
-    areaDeviation.setAttribute('disabled', 'true');
+  areaDeviation.setAttribute("disabled", "true");
 
-    /* -------------------  EVENTS  ---------------------- */
-    // print
-    btnPrint.addEventListener('click', function (e) {
-        window.print();
-    }, false);
-    // odstepstwa
-    cbDeviation.addEventListener('click', function (e) {
-
-        if (e.target.checked) {
-            txtDeviation.classList.toggle('cross');
-            labelDeviation.classList.toggle('none');
-            areaDeviation.removeAttribute('disabled');
-        } else {
-            txtDeviation.classList.toggle('cross');
-            labelDeviation.classList.toggle('none');
-            areaDeviation.setAttribute('disabled', true);
-        }
-    }, false);
-    // zgloszenie/decyzja
-    choiceFiled.addEventListener('click', function (e) {
-        // e.preventDefault();
-        var label = e.target,
-            id = label.getAttribute('id');
-        // console.log(e.target)
-        if (id === 'application') {
-            applicationInp.firstElementChild.setAttribute('checked', 'true');
-            decisionInp.firstElementChild.removeAttribute('checked');
-            appText.forEach(function (e) {
-                e.classList.remove('cross');
-            });
-            appInp.forEach(function (e) {
-                e.classList.remove('d-none');
-            });
-            desText.forEach(function (e) {
-                e.classList.add('cross');
-            });
-            desInp.forEach(function (e) {
-                e.classList.add('d-none');
-            });
-        } else if (id === 'decision') {
-            decisionInp.firstElementChild.setAttribute('checked', 'true');
-            applicationInp.firstElementChild.removeAttribute('checked');
-            appText.forEach(function (e) {
-                e.classList.add('cross');
-            });
-            appInp.forEach(function (e) {
-                e.classList.add('d-none');
-            });
-            desText.forEach(function (e) {
-
-                e.classList.remove('cross');
-            });
-            desInp.forEach(function (e) {
-                e.classList.remove('d-none');
-            });
-        }
-    }, false);
+  /* -------------------  EVENTS  ---------------------- */
+  // print
+  btnPrint.addEventListener("click", function (e) {
+    window.print();
+  }, false);
+  btnToday.addEventListener("click", function (e) {
+    dateInp.value = new Date().toLocaleDateString("pl-PL", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    });
+  }, false);
+  // odstepstwa
+  cbDeviation.addEventListener("click", function (e) {
+    if (e.target.checked) {
+      txtDeviation.classList.toggle("line-through");
+      labelDeviation.classList.toggle("lapse");
+      areaDeviation.removeAttribute("disabled");
+    } else {
+      txtDeviation.classList.toggle("line-through");
+      labelDeviation.classList.toggle("lapse");
+      areaDeviation.setAttribute("disabled", true);
+    }
+  }, false);
+  // zgloszenie/decyzja
+  choiceFiled.addEventListener("click", function (e) {
+    // e.preventDefault();
+    var label = e.target,
+        id = label.getAttribute("id");
+    console.log(label);
+    if (id === "application") {
+      applicationInp.firstElementChild.setAttribute("checked", "true");
+      decisionInp.firstElementChild.removeAttribute("checked");
+      appText.forEach(function (e) {
+        e.classList.remove("line-through");
+      });
+      appInp.forEach(function (e) {
+        e.classList.remove("hidden");
+      });
+      desText.forEach(function (e) {
+        e.classList.add("line-through");
+      });
+      desInp.forEach(function (e) {
+        e.classList.add("hidden");
+      });
+    } else if (id === "decision") {
+      decisionInp.firstElementChild.setAttribute("checked", "true");
+      applicationInp.firstElementChild.removeAttribute("checked");
+      appText.forEach(function (e) {
+        e.classList.add("line-through");
+      });
+      appInp.forEach(function (e) {
+        e.classList.add("hidden");
+      });
+      desText.forEach(function (e) {
+        e.classList.remove("line-through");
+      });
+      desInp.forEach(function (e) {
+        e.classList.remove("hidden");
+      });
+    }
+  }, false);
 }, false);
 
-var fElId = function fElId(elem) {
-    return document.getElementById(elem);
+var getElemFromDocument = function getElemFromDocument(elem) {
+  return document.getElementById(elem);
 };
 
 /***/ })

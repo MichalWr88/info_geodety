@@ -1,183 +1,80 @@
-body {
-    max-width: 1000px;
-    margin: 0 auto;
-    /* background-color:lightskyblue; */
-    padding: 20px;
-}
-.doc__header{
-    background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);
-}
-.doc__info{
-    font-size:1.4rem;
-}
-.doc__main {
-    height: 100%
-}
-
-
-.loc__location {
-    margin: 0;
-    line-height: 100%;
-}
-
-.cross {
-    text-decoration: line-through;
-}
-
-.btn__print{
-background: linear-gradient(-60deg, #16a085 0%, #f4d03f 100%);
-color:white;
-border:none;
-text-transform: uppercase;
-font-size: 0.8rem;
-transition: 1.5s;
-}
-.btn__print:hover{
-background: linear-gradient(to top, #0fd850 0%, #f9f047 100%);
-}
-
-/* XXXXXXXXXX */
-
-.lapse {
-    position: relative;
-    /* overflow:hidden; */
-}
-
 .lapse::before {
-    position: absolute;
-    content: '';
-    display: block;
-    height: 2px;
-    bottom: 50%;
-    left: 10%;
-    width: 80%;
-    -webkit-transform: rotate(-5deg);
-    transform: rotate(-5deg);
-    background-color: black;
-    z-index: 2;
+  position: absolute;
+  content: "";
+  display: block;
+  height: 2px;
+  bottom: 50%;
+  left: 10%;
+  width: 80%;
+  -webkit-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+  background-color: black;
+  z-index: 2;
 }
 
 .lapse::after {
-    position: absolute;
-    content: '';
-    display: block;
-    height: 2px;
-    top: 50%;
-    left: 10%;
-    width: 80%;
-    -webkit-transform: rotate(5deg);
-    transform: rotate(5deg);
-    background-color: black;
-}
-
-.textArea[disabled] {
-    background-color: white;
-}
-
-.doc__choice{
-    cursor:pointer;
-}
-/* XXXXXXXXXXXXXX  */
-
-.none::after {
-    content: none;
-}
-
-.none::before {
-    content: none;
-}
-
-.doc__desc {
-    font-size: 0.6em;
-}
-
-.nameInp {
-    border: none;
-    border-bottom: 2px dotted black;
-}
-
-h4 {
-    padding-bottom: 30px;
-}
-
-.textArea {
-    /* resize:none; */
-    overflow: hidden;
-    min-height: 50px;
-    max-height: 150px;
-}
-.circular {
-background: #EBEBE9;
-background-image: linear-gradient(-70deg, rgba(255,255,255,0.35) 3%, rgba(0,0,0,0.35) 100%),
-radial-gradient(101% 97%, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 98%);
-background-blend-mode: normal,normal,lighten;
-}
-.doc__footer{
-    background: #C9CCD3;
- background-image: linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%);
- background-blend-mode: lighten;
- border-top-left-radius: 50%;
- border-top-right-radius: 50%;
+  position: absolute;
+  content: "";
+  display: block;
+  height: 2px;
+  top: 50%;
+  left: 10%;
+  width: 80%;
+  -webkit-transform: rotate(5deg);
+  transform: rotate(5deg);
+  background-color: black;
 }
 
 /* ------------------------- MEDIA PRINT ------------------------- */
 
 @media print {
-    html {
-        font-size: 82.5%;
-        height: 100vh;
-    }
-    body {
-        height: 100vh;
-        background: white !important;
-    }
-    .circular{
-        background: white !important;
+  html {
+    font-size: 82.5%;
+    height: 100vh;
+  }
+  body {
+    height: 100vh;
+    background: white !important;
+  }
+  .circular {
+    background: white !important;
+  }
+  header {
+    display: none !important;
+  }
+  .lapse::before,
+  .lapse::after {
+    background-color: black !important;
+  }
 
-    }
-    header {
-        display: none !important;
-    }
-    .lapse::before,
-    .lapse::after {
-        background-color: black !important;
-    }
-    p {
-        padding: 2px;
-        margin: 2px;
-    }
+  .textArea[disabled] {
+    background-color: white;
+  }
 
-    .doc__textInp::-webkit-input-placeholder {
-        color: white;
-    }
-    .textArea[disabled] {
-        background-color: white;
-    }
-    .decision {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-    }
-    .doc__fixed-bottom {
-        position: absolute;
-        bottom: 0px;
-        width: 100%;
-        height: 50px;
-    }
-
-    .doc__textInp {
-        border: none;
-    }
-    .textArea {
-        border: none;
-        resize: none;
-        overflow: hidden;
-        height: 100px !important;
-    }
-    .signature {
-        margin-top: 100px;
-    }
-    footer>p {
-        display: none;
-        background-color: white;
-    }
+  .textArea {
+    border: none;
+    resize: none;
+    overflow: hidden;
+    height: 100px !important;
+  }
+  .signature {
+    margin-top: 100px;
+  }
+  footer > p {
+    display: none;
+    background-color: white;
+  }
+}
+@media print {
+  input::placeholder {
+    color: transparent !important;
+  } 
+  textarea::placeholder {
+    color: transparent !important;
+  } 
+  select{
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+  }
 }

@@ -1,86 +1,119 @@
-window.addEventListener('load', () => {
+// class config {
+//     constructor(name){
+//         if(!document) throw Error("document is undefined");
+//         this.obj =
+//     };
 
-    const btnPrint = fElId('btnPrint'),
-    body = document.querySelector('main'),
-        cbDeviation = fElId('deviation'),
-        txtDeviation = fElId('deviationText'),
-        labelDeviation = fElId('deviation-label'),
-        areaDeviation = fElId('deviation-area'),
-        choiceFiled = fElId('choice'),
-        // 
-        decisionInp = fElId('decision'),
-        applicationInp = fElId('application'),
-        // 
-        appText = Array.prototype.slice.call(document.querySelectorAll('.appTxt')),
-        appInp = Array.prototype.slice.call(document.querySelectorAll('.appInp')),
-        // 
-        desText = Array.prototype.slice.call(document.querySelectorAll('.desTxt')),
-        desInp = Array.prototype.slice.call(document.querySelectorAll('.desInp'));
+//     init(name){
+//         getElemFromDocument = (elem) => { return document.getElementById(elem) }
+//     }
 
-        areaDeviation.setAttribute('disabled', 'true');
+// }
+
+window.addEventListener(
+  "load",
+  () => {
+    const btnPrint = getElemFromDocument("btnPrint");
+    const btnToday = getElemFromDocument("btnToday");
+    const dateInp = getElemFromDocument("dateInput");
+    const cbDeviation = getElemFromDocument("deviation");
+    const txtDeviation = getElemFromDocument("deviationText");
+    const labelDeviation = getElemFromDocument("deviation-label");
+    const areaDeviation = getElemFromDocument("deviation-area");
+    const choiceFiled = getElemFromDocument("choice");
+    //
+    const decisionInp = getElemFromDocument("decision");
+    const applicationInp = getElemFromDocument("application");
+    //
+    const appText = [...document.querySelectorAll(".appTxt")];
+    const appInp = [...document.querySelectorAll(".appInp")];
+    const desText = [...document.querySelectorAll(".desTxt")];
+    const desInp = [...document.querySelectorAll(".desInp")];
+
+    areaDeviation.setAttribute("disabled", "true");
 
     /* -------------------  EVENTS  ---------------------- */
     // print
-    btnPrint.addEventListener('click', (e) => {
+    btnPrint.addEventListener(
+      "click",
+      (e) => {
         window.print();
-            
-    }, false)
+      },
+      false
+    );
+    btnToday.addEventListener(
+      "click",
+      (e) => {
+        dateInp.value = new Date().toLocaleDateString("pl-PL", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+        });
+      },
+      false
+    );
     // odstepstwa
-    cbDeviation.addEventListener('click', (e) => {
-
+    cbDeviation.addEventListener(
+      "click",
+      (e) => {
         if (e.target.checked) {
-            txtDeviation.classList.toggle('cross');
-            labelDeviation.classList.toggle('none');
-            areaDeviation.removeAttribute('disabled');
+          txtDeviation.classList.toggle("line-through");
+          labelDeviation.classList.toggle("lapse");
+          areaDeviation.removeAttribute("disabled");
         } else {
-            txtDeviation.classList.toggle('cross');
-            labelDeviation.classList.toggle('none');
-            areaDeviation.setAttribute('disabled', true);
+          txtDeviation.classList.toggle("line-through");
+          labelDeviation.classList.toggle("lapse");
+          areaDeviation.setAttribute("disabled", true);
         }
-    }, false);
+      },
+      false
+    );
     // zgloszenie/decyzja
-    choiceFiled.addEventListener('click', (e) => {
+    choiceFiled.addEventListener(
+      "click",
+      (e) => {
         // e.preventDefault();
         const label = e.target,
-            id = label.getAttribute('id');
-        // console.log(e.target)
-        if (id === 'application') {
-            applicationInp.firstElementChild.setAttribute('checked', 'true');
-            decisionInp.firstElementChild.removeAttribute('checked');
-            appText.forEach((e) => {
-                e.classList.remove('cross');
-            });
-            appInp.forEach(e => {
-                e.classList.remove('d-none');
-            });
-            desText.forEach(e => {
-                e.classList.add('cross');
-            });
-            desInp.forEach(e => {
-                e.classList.add('d-none');
-            });
-        } else if (id === 'decision') {
-            decisionInp.firstElementChild.setAttribute('checked', 'true');
-            applicationInp.firstElementChild.removeAttribute('checked');
-            appText.forEach(e => {
-                e.classList.add('cross');
-            });
-            appInp.forEach(e => {
-                e.classList.add('d-none');
-            });
-            desText.forEach((e) => {
-                
-                e.classList.remove('cross');
-            });
-            desInp.forEach(e => {
-                e.classList.remove('d-none');
-            });
+          id = label.getAttribute("id");
+        console.log(label);
+        if (id === "application") {
+          applicationInp.firstElementChild.setAttribute("checked", "true");
+          decisionInp.firstElementChild.removeAttribute("checked");
+          appText.forEach((e) => {
+            e.classList.remove("line-through");
+          });
+          appInp.forEach((e) => {
+            e.classList.remove("hidden");
+          });
+          desText.forEach((e) => {
+            e.classList.add("line-through");
+          });
+          desInp.forEach((e) => {
+            e.classList.add("hidden");
+          });
+        } else if (id === "decision") {
+          decisionInp.firstElementChild.setAttribute("checked", "true");
+          applicationInp.firstElementChild.removeAttribute("checked");
+          appText.forEach((e) => {
+            e.classList.add("line-through");
+          });
+          appInp.forEach((e) => {
+            e.classList.add("hidden");
+          });
+          desText.forEach((e) => {
+            e.classList.remove("line-through");
+          });
+          desInp.forEach((e) => {
+            e.classList.remove("hidden");
+          });
         }
+      },
+      false
+    );
+  },
+  false
+);
 
-    }, false);
-
-
-
-}, false);
-
-let fElId = (elem) => { return document.getElementById(elem) };
+const getElemFromDocument = (elem) => {
+  return document.getElementById(elem);
+};
